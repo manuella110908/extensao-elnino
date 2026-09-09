@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="icon" type="image/x-icon" href="imagens/nuvem.png">
+</head>
+
+<body>
+
+    <header>
+        <h1><a href="/index.html" class="nome">Principal</a></h1>
+    </header>
+
+    <main>
+        <h1>Você sabe como se proteger diante de um momento climático extremo?</h1>
+
+        <div class="bloco-texto">
+            <p>
+                O Sul do Brasil será uma das regiões mais afetadas pelo El Niño.
+                A nossa região enfrentará a passagem de tornados, enchentes e secas
+                extremas até o início de 2027.</p>
+
+            <p>Por isso, conhecer os riscos, entender como o clima funciona e
+                saber exatamente o que fazer antes, durante e depois de uma emergência
+                faz toda a diferença para evitar tragédias e tomar decisões rápidas.</p>
+        </div>
+
+        <h2>Aprenda a se proteger em cada uma dessas situações:</h2>
+
+        <div class="botoes-em-geral">
+            <a href="tornado/index.html" class="botao cinza">Tornados</a>
+            <a href="enchentes/index.html" class="botao cinza">Enchentes</a>
+            <a href="secas/index.html" class="botao cinza">Secas<br>extremas</a>
+            <a href="elnino/index.html" class="botao azul">El niño<br>La niña</a>
+            <a href="nupdec/index.html" class="botao azul">NUPDEC</a>
+        </div>
+
+
+        <section class="secao-historico">
+            <h2>Histórico de Eventos Climáticos no Brasil</h2>
+            <p class="subtitulo-secao">Principais registros de desastres causados pelas variações do El Niño e La Niña
+                (Fonte: S2iD / Defesa Civil)</p>
+
+            <div class="tabela-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Motivo</th>
+                            <th>Quando</th>
+                            <th>Onde</th>
+                            <th>O que aconteceu</th>
+                            <th>Pessoas afetadas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="tag-elnino">El Niño</span></td>
+                            <td>2023 — 2024</td>
+                            <td>Região Sul (RS, PR, SC)</td>
+                            <td>Chuvas históricas, enchentes e transbordamentos de rios.</td>
+                            <td>+2,3 milhões de pessoas</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag-elnino">El Niño</span></td>
+                            <td>2023 — 2024</td>
+                            <td>Região Norte (AM, PA)</td>
+                            <td>Seca severa, isolamento de comunidades e queimadas.</td>
+                            <td>+600 mil pessoas</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag-lanina">La Niña</span></td>
+                            <td>2020 — 2023</td>
+                            <td>Região Sul (PR e RS)</td>
+                            <td>Estiagem prolongada e crise no abastecimento de água.</td>
+                            <td>+1,5 milhão de pessoas</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag-elnino">Super El Niño</span></td>
+                            <td>2015 — 2016</td>
+                            <td>Norte e Nordeste</td>
+                            <td>Seca histórica e colapso em reservatórios de água.</td>
+                            <td>+33 milhões de pessoas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="nota-rodape-tabela">
+                * Dados estimados com base nos relatórios oficiais do
+                <a href="https://s2id.mi.gov.br/" target="_blank" rel="noopener noreferrer">S2iD / Defesa Civil
+                    Nacional</a>.
+            </p>
+        </section>
+
+        <h2>Acompanhe o clima em tempo real:</h2>
+        <section class="secao-windy">
+            <div class="mapa-container">
+                <iframe
+                    src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=%C2%B0C&metricWind=km%2Fh&zoom=5&overlay=radar&product=radar&level=surface&lat=-24.72&lon=-53.74"
+                    title="Mapa de Clima em Tempo Real - Windy" frameborder="0">
+                </iframe>
+            </div>
+        </section>
+
+
+        <section class="secao-objetivo">
+            <h2>Nosso objetivo:</h2>
+            <div class="bloco-texto">
+                <p>
+                    Este site é fruto de um <strong>Projeto de Extensão Universitária</strong> do curso de Análise e
+                    Desenvolvimento de Sistemas (UNIPAR — Câmpus Toledo/PR), criado com o propósito de aproximar o
+                    conhecimento científico e os dados meteorológicos da comunidade.
+                </p>
+                <p>
+                    Diante do aumento de eventos climáticos extremos causados pelos fenômenos <strong>El Niño e La
+                        Niña</strong> na Região Sul e em todo o Brasil, nossa missão é oferecer um guia prático,
+                    educativo e acessível. Queremos capacitar a população com informações sobre prevenção, preparação e
+                    protocolos de segurança orientados pela Defesa Civil e pelos NUPDECs (Núcleos Comunitários de
+                    Proteção e Defesa Civil), ajudando a proteger vidas e mitigar impactos em momentos de crise.
+                </p>
+            </div>
+        </section>
+
+        <section class="secao-feedbacks">
+            <h2>Feedbacks</h2>
+            <button type="button" class="btn-enviar" onclick="abrirFormulario()">Deixe seu feedback</button>
+        </section>
+
+        <!-- Formspree e Estrutura Multi-passos -->
+        <form id="meuFormulario" action="https://formspree.io/f/mrpgknnd" method="POST">
+
+            <div id="passo-1" class="modal-background">
+                <div class="modal-conteudo">
+                    <span class="botao-fechar" onclick="fecharFormulario()">&times;</span>
+
+                    <h2>Deixe sua opinião</h2>
+
+                    <p class="modal-pergunta">As informações do site foram úteis para você?</p>
+
+                    <div class="opcoes">
+
+                        <label class="selecao-bola">
+                            <input class="bola" type="radio" name="Conteudo_Foi_Util" value="Sim" required>Sim
+                        </label>
+
+                        <label class="selecao-bola">
+                            <input class="bola" type="radio" name="Conteudo_Foi_Util" value="Não" required>Não
+                        </label>
+
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label class="modal-pergunta">Qual é a sua principal sugestão para melhorar o nosso site?</label>
+
+                        <input type="text" name="sugestao" class="input-linha" placeholder="Escreva o que está pensando...">
+                    </div>
+
+                    <button type="submit" class="btn-continuar" onclick="enviarFinal()">Continuar</button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <div class="rodape-conteudo">
+            <p><strong>Projeto de Extensão Universitária — Prevenção e Desastres Naturais</strong></p>
+            <p>Desenvolvido por: Grupo 404* | Orientação Acadêmica</p>
+            <p>Curso de Análise e Desenvolvimento de Sistemas — UNIPAR</p>
+            <p>&copy; 2026 — Toledo/PR. Conteúdo de caráter educativo e informativo.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
