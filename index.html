@@ -2,6 +2,16 @@
 <html lang="pt-br">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3SZFY42G6X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3SZFY42G6X');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Principal</title>
@@ -153,9 +163,11 @@
                     </div>
 
                     <div class="campo-grupo">
-                        <label class="modal-pergunta">Qual é a sua principal sugestão para melhorar o nosso site?</label>
+                        <label class="modal-pergunta">Qual é a sua principal sugestão para melhorar o nosso
+                            site?</label>
 
-                        <input type="text" name="sugestao" class="input-linha" placeholder="Escreva o que está pensando...">
+                        <input type="text" name="sugestao" class="input-linha"
+                            placeholder="Escreva o que está pensando...">
                     </div>
 
                     <button type="submit" class="btn-continuar" onclick="enviarFinal()">Continuar</button>
