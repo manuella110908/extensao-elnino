@@ -855,7 +855,7 @@ footer {
 
     main {
         width: 92%;
-        padding-top: 20px;
+        padding-top: 100px;
         overflow-x: hidden;
     }
 
@@ -953,4 +953,6 @@ footer {
         font-weight: 600;
         color: #333333;
     }
+
+   
 }
