@@ -741,6 +741,83 @@ body.modal-aberto {
     margin-top: 8px;
     font-style: italic;
 }
+/*Imagens Oceano e CO2-----------------------------------------------------------*/
+
+.painel-monitoramento {
+    background-color: #d9d9d9; 
+    border-radius: 16px;
+    padding: 30px;
+    margin: 35px 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+.painel-monitoramento h2 {
+    color: #02256f; 
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.subtitulo-painel {
+    color: #d54c00;
+    text-align: center;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+.painel-monitoramento .grid-comparativo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.painel-monitoramento .imagem-conteudo {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.painel-monitoramento .imagem-conteudo img {
+    width: 100%;
+    height: 380px; /* Aumenta a altura para o globo crescer */
+    aspect-ratio: 4 / 3; /* Formato mais proporcional para esferas */
+    object-fit: contain;
+    background-color: #000005;
+    border-radius: 10px;
+}
+
+.painel-monitoramento figcaption {
+    font-size: 1rem;
+    margin-top: 10px;
+    text-align: center;
+    color: #02256F;
+    line-height: 1.4;
+    font-weight: 500;
+    display: block;
+}
+
+.nota-rodape-painel {
+    font-size: 15px;
+    color: #373e49;
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+.grid-comparativo figcaption small {
+    display: block;
+    font-size: 0.9rem; 
+    margin-top: 6px;
+    font-weight: 500; 
+}
+
 /* Rodapé -------------------------------------------------------------------------*/
 footer {
     background-color: #D54C00;
@@ -851,5 +928,29 @@ footer {
 
     .mapa-container {
         height: 350px;
+    }
+
+    .painel-monitoramento .grid-comparativo {
+        grid-template-columns: 1fr !important;
+        gap: 25px;
+    }
+
+    .painel-monitoramento .imagem-conteudo img {
+        height: 240px !important; 
+        aspect-ratio: 16 / 10 !important; 
+        object-fit: contain;
+    }
+
+    .painel-monitoramento figcaption {
+        font-size: 15px !important;
+        padding: 0 10px;
+    }
+
+    .painel-monitoramento figcaption small {
+        display: block;
+        font-size: 13px !important;
+        margin-top: 6px;
+        font-weight: 600;
+        color: #333333;
     }
 }
