@@ -954,5 +954,10 @@ footer {
         color: #333333;
     }
 
+    .modal-conteudo h2:first-child,
+    .modal-conteudo h3:first-child,
+    .modal-conteudo .modal-pergunta:first-child {
+    margin-top: 50px !important; 
+    }
    
 }
