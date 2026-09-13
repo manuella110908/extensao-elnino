@@ -68,6 +68,11 @@ main h2 {
     color: #D54C00;
     text-align: center;
 }
+
+strong, b {
+    font-weight: 700 !important;
+    color: #000; 
+}
 /* textos-----------------------------------*/
 .bloco-texto {
     color: black;
@@ -184,7 +189,7 @@ main h2 {
     padding-bottom: 10px;
 }
 
-/*---------------------------------------------------------*/
+/*Entrevista - vídeo---------------------------------------------------------*/
 .secao-video {
     margin: 40px 0;
     text-align: center;
@@ -201,7 +206,6 @@ main h2 {
     box-shadow: 0 10px 25px rgba(2, 37, 111, 0.2);
 }
 
-/* O iframe preenche todo o container */
 .video-container iframe {
     width: 100%;
     height: 100%;
@@ -239,7 +243,6 @@ main h2 {
     text-align: center;
 }
 
-/* Container responsivo do mapa */
 .mapa-container {
     width: 100%;
     max-width: 900px;
@@ -295,7 +298,7 @@ table {
 }
 
 th {
-    background-color: #002870; /* Azul principal do seu site */
+    background-color: #002870; 
     color: #ffffff;
     padding: 16px 14px;
     font-family: 'Montserrat', sans-serif;
@@ -329,29 +332,28 @@ tbody tr:nth-child(even) {
     color: #D54C00;
 }
 /*Parte feedback-----------------------------------------------------------------*/
-/* O fundo escuro que cobre o site todo */
+
 .modal-background {
-    display: none; /* ESSENCIAL: Começa escondido */
+    display: none; 
     position: fixed;
-    z-index: 9999; /* Fica na frente de tudo */
+    z-index: 9999; 
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.7); /* Fundo preto semi-transparente */
+    background-color: rgba(0,0,0,0.7); 
     align-items: center;
     justify-content: center;
 }
 
-/* A caixa branca do formulário baseada no seu desenho */
+
 .modal-conteudo {
     background-color: white;
     padding: 30px;
     border-radius: 12px;
-    /* Ajuste esses valores para aumentar o tamanho */
     width: 90%; 
-    max-width: 500px; /* Largura maior para caber os textos lado a lado */
-    min-height: 500px; /* Altura mínima */
+    max-width: 500px; 
+    min-height: 500px; 
     color: #333333;
     position: relative;
     display: flex;
@@ -405,11 +407,11 @@ tbody tr:nth-child(even) {
 }
 
 .botao-fechar{
-    position: absolute; /* Retira o elemento do fluxo normal e permite posicionar com top/right */
-    right: 20px;       /* Distância de 20 pixels da borda direita */
-    top: 15px;         /* Distância de 15 pixels da borda superior */
-    font-size: 40px;   /* Tamanho do X */
-    cursor: pointer;   /* Faz aparecer a "mãozinha" ao passar o rato */
+    position: absolute; 
+    right: 20px;       
+    top: 15px;         
+    font-size: 40px;   
+    cursor: pointer;   
     color: #888888;
     transition: color 0.2s;
 }
@@ -439,14 +441,14 @@ tbody tr:nth-child(even) {
 }
 
 .selecao-bola {
-    font-size: 20px; /* Ajuste este valor para o tamanho que desejar */
+    font-size: 20px; 
     font-weight: 500;
-    font-family: 'Inter', sans-serif;/* Mantém o estilo do seu site */
+    font-family: 'Inter', sans-serif;
     cursor: pointer;
     display: flex;
-    align-items: center; /* Alinha a bolinha perfeitamente com o meio do texto */
+    align-items: center; 
     color: #333333;
-    padding: 8px 12px; /* Área de toque expandida */
+    padding: 8px 12px; 
     border-radius: 8px;
     user-select: none;
 }
@@ -454,7 +456,7 @@ tbody tr:nth-child(even) {
 .opcoes{
    display: flex;
     width: 100%;
-    justify-content: space-around; /* Garante que a folga à esquerda e à direita seja idêntica */
+    justify-content: space-around; 
     align-items: center;
     margin-bottom: 50px;
     padding: 0 15px;
@@ -478,42 +480,41 @@ tbody tr:nth-child(even) {
 }
 
 .campo-grupo .modal-pergunta {
-    justify-content: center; /* Alinha o texto no centro */
+    justify-content: center; 
     width: 100%;
 }
 
 .input-linha {
-    width: 92%; /* Ocupa a largura total acompanhando o texto */
+    width: 92%; 
     background-color: #ffffff;
-    border: 2px solid #002870; /* Borda azul em volta de todo o retângulo */
-    border-radius: 8px; /* Cantos arredondados */
-    padding: 14px 16px; /* Altura confortável para digitar no celular */
+    border: 2px solid #002870; 
+    border-radius: 8px; 
+    padding: 14px 16px; 
     outline: none;
     font-family: 'Inter', sans-serif;
-    font-size: 16px; /* Evita zoom automático em celulares Android/iOS */
+    font-size: 16px; 
     color: #333333;
     margin-top: 10px;
-    text-align: left; /* Texto alinhado à esquerda */
+    text-align: left; 
     box-sizing: border-box;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .input-linha:focus {
-    border-color: #D54C00; /* Borda fica laranja ao clicar para digitar */
+    border-color: #D54C00; 
     box-shadow: 0 0 0 3px rgba(213, 76, 0, 0.15);
 }
 
 .input-linha:hover{
     background-color: #d9d9d9;
 }
-/* Bloqueia a rolagem da página do fundo quando formulário estiver aberto*/
+
 body.modal-aberto {
     overflow: hidden;
 }
 
 /*Agenda el nino----------------------------------------------------*/
-
 .secao-timeline {
     padding: 10px 80px 10px;
     margin: 40px 0;
@@ -547,7 +548,6 @@ body.modal-aberto {
     border: 3px solid #fff;
 }
 
-/* Marcadores com cores de acordo com a urgência */
 .timeline-marker.concluido {
     background-color: #6c757d;
     box-shadow: 0 0 0 2px #6c757d;
@@ -559,7 +559,7 @@ body.modal-aberto {
 }
 
 .timeline-marker.alerta {
-    background-color: #d9534f; /* Destaque em vermelho para o pico máximo */
+    background-color: #d9534f; 
     box-shadow: 0 0 0 3px rgba(217, 83, 79, 0.4);
 }
 
@@ -613,21 +613,20 @@ body.modal-aberto {
 /*Seção notícias automáticas--------------------------------------------------*/
 
 .secao-carrossel-noticias {
-    padding: 0 40px; /* Dá espaço nas laterais para as setas não colarem na borda */
+    padding: 0 40px; 
     margin-bottom: 40px;
 }
 
 .meuCarrossel .swiper-wrapper {
     display: flex;
-    align-items: stretch; /* Estica todos os slides para a altura do maior */
+    align-items: stretch; 
 }
 
 .meuCarrossel .swiper-slide {
-    height: auto; /* Permite que o slide acompanhe o container pai */
+    height: auto; 
     display: flex;
 }
 
-/* Card Geral */
 .card-noticia {
     background: #ffffff;
     border-radius: 12px;
@@ -641,14 +640,13 @@ body.modal-aberto {
 }
 
 .card-noticia:hover {
-    transform: translateY(-6px); /* Eleva o card levemente */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Sombra mais acentuada */
+    transform: translateY(-6px); 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); 
 }
 
-/* Área e ajuste da Imagem */
 .card-imagem {
     width: 100%;
-    height: 180px; /* Altura fixa para não achatar nem sumir */
+    height: 180px; 
     overflow: hidden;
     flex-shrink: 0;
     background-color: #e0e0e0;
@@ -657,11 +655,10 @@ body.modal-aberto {
 .card-imagem img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ajusta a foto proporcionalmente ao card */
+    object-fit: cover; 
     display: block;
 }
 
-/* Conteúdo de Texto */
 .card-corpo {
     padding: 16px;
     display: flex;
@@ -673,14 +670,14 @@ body.modal-aberto {
 
 .swiper-button-next,
 .swiper-button-prev {
-    color: #02256F; /* Substitua pelo código Hex da cor principal do seu site */
+    color: #02256F; 
     font-weight: bold;
 }
 
-/* Efeito ao passar o mouse nas setas */
+
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-    color: #D54C00; /* Tom levemente mais escuro para o hover */
+    color: #D54C00; 
 }
 
 .categoria-tag {
@@ -708,19 +705,17 @@ body.modal-aberto {
 .fonte-noticia {
     font-size: 0.8rem;
     color: #666666;
-    margin-top: auto; /* Empurra a data para o rodapé do card */
+    margin-top: auto; 
 }
 /*Especial 3 Furacões--------------------------------------------------*/
 .card-destaque-especial h2 a.link-destaque-especial {
-    color: #02256f; /* Cor azul inicial */
-    text-decoration: none;/* Remove o sublinhado padrão */
-    transition: color 0.2s ease; /* Deixa a troca de cor suave */
+    color: #02256f; 
+    transition: color 0.2s ease; 
 }
 
-/* Estado quando passa o cursor (Hover) */
+
 .card-destaque-especial h2 a.link-destaque-especial:hover {
-    color: #ff6600; /* Muda para a cor laranja */
-    text-decoration: underline; /* Opcional: adiciona sublinhado no hover */
+    color: #ff6600; 
 }
 
 .bloco-gif {
@@ -729,10 +724,10 @@ body.modal-aberto {
 }
 
 .gif-satelite {
-    max-width: 100%; /* Ajusta o tamanho da imagem para caber na tela */
+    max-width: 100%; 
     height: auto;
-    border-radius: 8px; /* Arredonda as bordas do GIF */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Adiciona uma sombra leve */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
 }
 
 .legenda-imagem {
@@ -786,8 +781,8 @@ body.modal-aberto {
 
 .painel-monitoramento .imagem-conteudo img {
     width: 100%;
-    height: 380px; /* Aumenta a altura para o globo crescer */
-    aspect-ratio: 4 / 3; /* Formato mais proporcional para esferas */
+    height: 380px; 
+    aspect-ratio: 4 / 3;
     object-fit: contain;
     background-color: #000005;
     border-radius: 10px;
@@ -873,7 +868,6 @@ footer {
         margin-right: 10px;
     }
 
-    /* Permite quebrar os botões em 2x2 no celular */
     .botoes-paginas-internas {
         flex-wrap: wrap;
         gap: 12px;
@@ -881,7 +875,6 @@ footer {
         margin: 20px auto 30px auto;
     }
 
-    /* Redimensiona os botões mantendo o formato quadrado */
     .botao {
         width: 120px;
         height: 120px;
@@ -900,7 +893,7 @@ footer {
 
     table {
         font-size: 11px;
-        min-width: 500px; /* Garante uma largura mínima para manter as colunas organizadas */
+        min-width: 500px; 
     }
 
     th, td {
