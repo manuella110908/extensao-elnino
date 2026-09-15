@@ -2,7 +2,7 @@
 let swiper = new Swiper('.meuCarrossel', {
     slidesPerView: 1,
     spaceBetween: 20,
-    loop: true, // <-- Ativa o looping infinito
+    loop: true, 
     autoplay: {
         delay: 4000,
         disableOnInteraction: false,
@@ -18,7 +18,6 @@ let swiper = new Swiper('.meuCarrossel', {
     }
 });
 
-// Banco de imagens temáticas para fallback visual do ENOS
 const imagensClima = [
    
     'https://images.unsplash.com/photo-1615092296061-e2ccfeb2f3d6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5jJUMzJUFBbmRpbyUyMGZsb3Jlc3RhbHxlbnwwfHwwfHx8MA%3D%3D',
@@ -32,9 +31,6 @@ const imagensClima = [
 
 ];
 
-
-
-// 2. Busca dinâmica do Feed
 const feedUrl = encodeURIComponent('https://news.google.com/rss/search?q=El+Nino+clima+Brasil&hl=pt-BR&gl=BR&ceid=BR:pt-419');
 
 fetch(`https://api.rss2json.com/v1/api.json?rss_url=${feedUrl}`)
@@ -68,7 +64,6 @@ fetch(`https://api.rss2json.com/v1/api.json?rss_url=${feedUrl}`)
             container.innerHTML += slideHTML;
         });
 
-        // Atualiza o carrossel e reconstrói o loop com os novos cards carregados
         swiper.update();
         swiper.loopDestroy();
         swiper.loopCreate();
