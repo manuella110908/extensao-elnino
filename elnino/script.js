@@ -1,4 +1,4 @@
-// 1. Inicializa o carrossel básico
+
 let swiper = new Swiper('.meuCarrossel', {
     slidesPerView: 1,
     spaceBetween: 20,
@@ -29,7 +29,6 @@ const imagensClima = [
     'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&q=80'
 ];
 
-// 2. PLANO B (Notícias de segurança caso a API caia no futuro)
 const noticiasFallback = [
     {
         title: "Monitoramento global aponta intensificação das fases do ENOS para os próximos meses.",
@@ -48,7 +47,6 @@ const noticiasFallback = [
     }
 ];
 
-// 3. Função que desenha os cards no HTML
 function preencherCarrossel(itensNoticias) {
     const container = document.getElementById('container-cards-rss');
     if (!container) return;
@@ -83,7 +81,6 @@ function preencherCarrossel(itensNoticias) {
         container.innerHTML += slideHTML;
     });
 
-    // Atualiza o Swiper para reorganizar os novos slides sem quebrar
     if (swiper) {
         swiper.destroy(true, true);
     }
@@ -107,7 +104,6 @@ function preencherCarrossel(itensNoticias) {
     });
 }
 
-// 4. Tenta buscar da API, se falhar usa o Plano B automaticamente
 const feedUrl = encodeURIComponent('https://news.google.com/rss/search?q=El+Nino+clima+Brasil&hl=pt-BR&gl=BR&ceid=BR:pt-419');
 
 fetch(`https://api.rss2json.com/v1/api.json?rss_url=${feedUrl}`)
