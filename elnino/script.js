@@ -19,7 +19,6 @@ let swiper = new Swiper('.meuCarrossel', {
 });
 
 const imagensClima = [
-   
     'https://images.unsplash.com/photo-1615092296061-e2ccfeb2f3d6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5jJUMzJUFBbmRpbyUyMGZsb3Jlc3RhbHxlbnwwfHwwfHx8MA%3D%3D',
     'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'https://images.unsplash.com/photo-1639279387104-9f0367bea7f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aHVycmljYW5lfGVufDB8fDB8fHww',
@@ -28,46 +27,102 @@ const imagensClima = [
     'https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=500&q=80',
     'https://images.unsplash.com/photo-1504386106331-3e4e71712b38?w=500&q=80',
     'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&q=80'
-
 ];
 
+// 2. PLANO B (Notícias de segurança caso a API caia no futuro)
+const noticiasFallback = [
+    {
+        title: "Monitoramento global aponta intensificação das fases do ENOS para os próximos meses.",
+        link: "https://portal.inmet.gov.br",
+        pubDate: new Date().toISOString()
+    },
+    {
+        title: "Especialistas alertam para a importância de planos de contingência regionais contra eventos extremos.",
+        link: "https://www.gov.br/inpe/pt-br",
+        pubDate: new Date().toISOString()
+    },
+    {
+        title: "Impactos do El Niño e La Niña na agricultura exigem planejamento estratégico antecipado.",
+        link: "https://portal.inmet.gov.br",
+        pubDate: new Date().toISOString()
+    }
+];
+
+// 3. Função que desenha os cards no HTML
+function preencherCarrossel(itensNoticias) {
+    const container = document.getElementById('container-cards-rss');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    itensNoticias.slice(0, 8).forEach((item, index) => {
+        let dataFormatada = "Recente";
+        try {
+            dataFormatada = new Date(item.pubDate).toLocaleDateString('pt-BR');
+        } catch (e) {
+            dataFormatada = "Recente";
+        }
+
+        const imgFallback = imagensClima[index % imagensClima.length];
+        const imagemCard = (item.enclosure && item.enclosure.link)
+            ? item.enclosure.link
+            : imgFallback;
+
+        const slideHTML = `
+            <div class="swiper-slide card-noticia">
+                <div class="card-imagem" style="height: 180px; overflow: hidden; background-color: #e0e0e0;">
+                    <img src="${imagemCard}" alt="Notícia El Niño" onerror="this.src='${imgFallback}'" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="card-corpo">
+                    <span class="categoria-tag">BOLETIM EL NIÑO</span>
+                    <h3><a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a></h3>
+                    <p class="fonte-noticia">Publicado em: ${dataFormatada}</p>
+                </div>
+            </div>
+        `;
+        container.innerHTML += slideHTML;
+    });
+
+    // Atualiza o Swiper para reorganizar os novos slides sem quebrar
+    if (swiper) {
+        swiper.destroy(true, true);
+    }
+    swiper = new Swiper('.meuCarrossel', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true, 
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 3,
+            }
+        }
+    });
+}
+
+// 4. Tenta buscar da API, se falhar usa o Plano B automaticamente
 const feedUrl = encodeURIComponent('https://news.google.com/rss/search?q=El+Nino+clima+Brasil&hl=pt-BR&gl=BR&ceid=BR:pt-419');
 
 fetch(`https://api.rss2json.com/v1/api.json?rss_url=${feedUrl}`)
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) throw new Error('Falha na rede');
+        return response.json();
+    })
     .then(data => {
-        const container = document.getElementById('container-cards-rss');
-        if (!container || !data.items || data.items.length === 0) return;
-
-        container.innerHTML = '';
-
-        data.items.slice(0, 8).forEach((item, index) => {
-            const dataFormatada = new Date(item.pubDate).toLocaleDateString('pt-BR');
-
-            const imgFallback = imagensClima[index % imagensClima.length];
-            const imagemCard = (item.enclosure && item.enclosure.link)
-                ? item.enclosure.link
-                : imgFallback;
-
-            const slideHTML = `
-                <div class="swiper-slide card-noticia">
-                    <div class="card-imagem">
-                        <img src="${imagemCard}" alt="Notícia El Niño" onerror="this.src='${imgFallback}'">
-                    </div>
-                    <div class="card-corpo">
-                        <span class="categoria-tag">BOLETIM EL NIÑO</span>
-                        <h3><a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a></h3>
-                        <p class="fonte-noticia">Publicado em: ${dataFormatada}</p>
-                    </div>
-                </div>
-            `;
-            container.innerHTML += slideHTML;
-        });
-
-        swiper.update();
-        swiper.loopDestroy();
-        swiper.loopCreate();
+        if (data && data.status === 'ok' && data.items && data.items.length > 0) {
+            preencherCarrossel(data.items);
+        } else {
+            throw new Error('Dados inválidos da API');
+        }
     })
     .catch(error => {
-        console.error('Erro ao carregar notícias:', error);
+        console.warn('API externa indisponível. Usando Plano B de segurança.');
+        preencherCarrossel(noticiasFallback);
     });
